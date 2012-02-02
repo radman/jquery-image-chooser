@@ -1,0 +1,23 @@
+.image-selector .image-selector-option {
+  float: left;
+  width: 50px;
+  height: 50px;
+  border: 3px solid #000;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  cursor: pointer;
+  opacity: 0.2;
+}
+
+.image-selector .image-selector-option.none {
+  background-color: #222;
+  text-align: center;
+  font-size: 10px;
+  padding-top: 15px;
+  height: 35px;
+}
+
+.image-selector .image-selector-option.selected {
+  border-color: #fff;
+  opacity: 1;
+}
