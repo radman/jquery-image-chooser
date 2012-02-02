@@ -2,11 +2,14 @@
   float: left;
   width: 50px;
   height: 50px;
-  border: 3px solid #000;
-  margin-right: 3px;
-  margin-bottom: 3px;
+  margin: 3px;
   cursor: pointer;
-  opacity: 0.2;
+  border: 1px solid black;
+}
+
+.image-selector .image-selector-option:hover {
+  border: 2px solid #f5f;
+  margin: 2px;
 }
 
 .image-selector .image-selector-option.none {
@@ -18,6 +21,7 @@
 }
 
 .image-selector .image-selector-option.selected {
-  border-color: #fff;
-  opacity: 1;
+  border: 2px solid #f5f;
+  margin: 2px;
+  margin-top: -1px;
 }
