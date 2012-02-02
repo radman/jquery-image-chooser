@@ -2,14 +2,13 @@
   float: left;
   width: 50px;
   height: 50px;
-  margin: 3px;
+  margin: 1px;
   cursor: pointer;
-  border: 1px solid black;
+  
+  padding: 3px;
 }
 
 .image-selector .image-selector-option:hover {
-  border: 2px solid #f5f;
-  margin: 2px;
 }
 
 .image-selector .image-selector-option.none {
@@ -21,7 +20,6 @@
 }
 
 .image-selector .image-selector-option.selected {
-  border: 2px solid #f5f;
-  margin: 2px;
-  margin-top: -1px;
+  border: 2px solid #2e5ad6;
+  padding: 1px;
 }
