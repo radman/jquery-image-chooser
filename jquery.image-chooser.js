@@ -1,7 +1,7 @@
 (function($){
 
   // takes a 'maxSelected' setting, which is used on multiselects
-  $.fn.radImageSelector = function(settings) {
+  $.fn.imageChooser = function(settings) {
     var originalSelector = $(this),
         originalOptions = originalSelector.find('option'),
         isMulti = originalSelector.attr('multiple') == 'multiple';
@@ -60,9 +60,6 @@
     });
     
     imageSelector.insertAfter(originalSelector);
-
-    // for simpleform TODO: remove this dependency
-    $('<div>').attr('style', 'clear:both;').insertBefore(originalSelector.parent().find('.help-block'));
 
     originalSelector.hide();
 
