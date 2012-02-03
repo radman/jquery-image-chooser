@@ -1,8 +1,14 @@
+.image-selector {
+  padding: 3px;
+  border: 1px solid #ddd;
+  width: 336px; /* 6 x (imagewidth + 2*(padding+margin)) = 6 * 56 */
+  line-height: 0;
+}
+
 .image-selector .image-selector-option {
-  float: left;
   width: 50px;
   height: 50px;
-  margin: 1px;
+  margin: 0px;
   cursor: pointer;
   
   padding: 3px;
@@ -21,5 +27,5 @@
 
 .image-selector .image-selector-option.selected {
   border: 2px solid #2e5ad6;
-  padding: 1px;
+  padding:1px;
 }
