@@ -30,6 +30,7 @@
 
     $(imageOptions).appendTo(imageSelector);
 
+
     $(imageOptions).click(function() {
       var self = $(this)
           isSelected = self.hasClass('selected'),
@@ -58,10 +59,37 @@
 
         originalOptions.removeAttr('selected');
         associatedOption.attr('selected', 'selected');
+
+        imageSelector.hide();
+        selectedImageContainer.show();
+        selectedImage.attr('src', associatedOption.html());
       }
     });
     
+    var selectedImageContainer = $('<div>').addClass('selected-image-container');
+    var selectedImage = $('<img>').addClass('selected-image').attr( 'src', imageSelector.find('.image-selector-option.selected').attr('src') );
+    selectedImage.appendTo(selectedImageContainer);
+
     imageSelector.insertAfter(originalSelector);
+    selectedImageContainer.insertAfter(imageSelector);
+    imageSelector.hide();
+
+    selectedImageContainer.click(function() {
+      selectedImageContainer.hide();
+      imageSelector.show();
+    });
+
+    $(document).click(function(e) {
+      var target = $(e.target);
+
+      if (selectedImageContainer[0] != target[0] &&
+          imageSelector[0] != target[0] &&
+          $.inArray(selectedImageContainer[0], target.parents()) == -1  && 
+          $.inArray(imageSelector[0], target.parents()) == -1 ) { 
+        imageSelector.hide();
+        selectedImageContainer.show();
+      }
+    });
 
     resetSize();
 
@@ -69,7 +97,7 @@
       
       /* These should be options */
       var rows = 3, cols = 6,
-          spacing = 6,
+          spacing = 2,
           padding = 2,
           imageWidth = 50,
           imageHeight = 50,
@@ -101,13 +129,35 @@
         'margin': imageMargin
       });
 
+      selectedImageContainer.css({
+        'width': imageWidth + 2*(imageMargin + imagePadding),
+        'height': imageHeight + 2*(imageMargin + imagePadding)
+      });
+
+      selectedImage.css({
+        'width': imageWidth,
+        'height': imageHeight,
+        'padding': imagePadding,
+        'margin': imageMargin
+      });
+
       /* fix right and bottom double padding */
       imageSelector.css({
         'padding-right': imageMargin,
         'padding-bottom': imageMargin
       });
 
+      selectedImageContainer.css({
+        'padding-right': imageMargin,
+        'padding-bottom': imageMargin
+      });
+
       imageSelector.find('.image-selector-option').css({
+        'margin-right': 0,
+        'margin-bottom': 0,
+        'border-width': imageBorderWidth + "px"
+      });
+      selectedImage.css({
         'margin-right': 0,
         'margin-bottom': 0,
         'border-width': imageBorderWidth + "px"

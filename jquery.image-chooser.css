@@ -1,9 +1,13 @@
+.image-selector, .selected-image-container {
+  border: 1px solid #ccc;
+  background-color: #dadada;
+}
+
 .image-selector {
-  border: 2px solid #aaa;
   overflow-y: scroll;
 }
 
-.image-selector .image-selector-option {
+.image-selector .image-selector-option, .selected-image-container .selected-image {
   cursor: pointer;
   border-style: solid;
   border-color: #ccc;
