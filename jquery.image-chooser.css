@@ -1,22 +1,20 @@
 .image-selector {
-  padding: 3px;
-  border: 1px solid #ddd;
-  width: 336px; /* 6 x (imagewidth + 2*(padding+margin)) = 6 * 56 */
-  line-height: 0;
+  border: 2px solid #aaa;
 }
 
 .image-selector .image-selector-option {
-  width: 50px;
-  height: 50px;
-  margin: 0px;
   cursor: pointer;
-  
-  padding: 3px;
+  border-style: solid;
+  border-color: #ccc;
+  background: #fff;
 }
 
-.image-selector .image-selector-option:hover {
+.image-selector .image-selector-option.selected {
+  border-style: solid;
+  border-color: #2e5ad6;
 }
 
+/* TODO: move sizing logic to js and implement the 'None' option */
 .image-selector .image-selector-option.none {
   background-color: #222;
   text-align: center;
@@ -25,7 +23,3 @@
   height: 35px;
 }
 
-.image-selector .image-selector-option.selected {
-  border: 2px solid #2e5ad6;
-  padding:1px;
-}
