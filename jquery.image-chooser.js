@@ -84,7 +84,7 @@
       imageSelector.css({
         'line-height': 0, 
         'padding': imageSelectorPadding,
-        'width': cols * (imageWidth + imageMargin + 2*(imagePadding + imageBorderWidth)),
+        'width': cols * (imageWidth + imageMargin + 2*(imagePadding + imageBorderWidth))
       });
 
       imageSelector.find('.image-selector-option').css({
