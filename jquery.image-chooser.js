@@ -68,7 +68,7 @@
     function resetSize() {
       
       /* These should be options */
-      var cols = 6,
+      var rows = 3, cols = 6,
           spacing = 6,
           padding = 2,
           imageWidth = 50,
@@ -80,12 +80,19 @@
           imageMargin = spacing,
           imageSelectorPadding = 0;
 
-
       imageSelector.css({
         'line-height': 0, 
         'padding': imageSelectorPadding,
-        'width': cols * (imageWidth + imageMargin + 2*(imagePadding + imageBorderWidth))
+        'width': cols * (imageWidth + imageMargin + 2*(imagePadding + imageBorderWidth)),
+        'height': rows * (imageHeight + imageMargin + 2*(imagePadding + imageBorderWidth))
       });
+
+      /* ie fix */
+      if ($.browser['msie'] == true) {
+        imageSelector.css({
+          'width': cols * (imageWidth + imageMargin + 2*(imagePadding + imageBorderWidth)) + 18
+        });
+      }
 
       imageSelector.find('.image-selector-option').css({
         'width': imageWidth,

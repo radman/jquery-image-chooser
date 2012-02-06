@@ -1,5 +1,6 @@
 .image-selector {
   border: 2px solid #aaa;
+  overflow-y: scroll;
 }
 
 .image-selector .image-selector-option {
