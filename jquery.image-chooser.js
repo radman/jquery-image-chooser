@@ -17,6 +17,7 @@
       var self = $(this),
           originalSelector = self,
           originalOptions = originalSelector.find('option'),
+          imageChooser,
           imageSelector, 
           imageOptions, 
           selectedImageContainer, 
@@ -26,7 +27,19 @@
 
       /* Private functions */
 
+      /* Structure
+       *  .image-chooser
+       *    .image-selector
+       *      .image-selector-option
+       *      ...
+       *      .image-selector-option
+       *
+       *    .selected-image-container
+       *      .selected-image
+       */
       function initialize() {
+        imageChooser = $('<div>').addClass('image-chooser');
+
         imageSelector = $('<div>').addClass('image-selector');
 
         imageOptions = constructImageOptions();
@@ -36,8 +49,11 @@
         selectedImage = $('<img>').addClass('selected-image').attr( 'src', imageSelector.find('.image-selector-option.selected').attr('src') );
         selectedImage.appendTo(selectedImageContainer);
 
-        imageSelector.insertAfter(originalSelector);
-        selectedImageContainer.insertAfter(imageSelector);
+        imageChooser
+          .append(imageSelector)
+          .append(selectedImageContainer)
+          .insertAfter(originalSelector);
+
         imageSelector.hide();
 
         selectedImageContainer.click(imageSelector_focus);
